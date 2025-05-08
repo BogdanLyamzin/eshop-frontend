@@ -1,9 +1,12 @@
+/** @jsxImportSource @emotion/react */
 import { useForm } from "react-hook-form";
 
 import TextField from "../../../shared/components/TextField/TextField";
 import Button from "../../../shared/components/Button/Button";
 
 import fields from "./fields";
+
+import { registerFormStyle } from "./styles";
 
 const RegisterForm = ({ submitForm }) => {
   const {
@@ -19,7 +22,7 @@ const RegisterForm = ({ submitForm }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} css={registerFormStyle}>
       <TextField
         {...fields.username}
         register={register}
