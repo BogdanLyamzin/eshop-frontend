@@ -14,15 +14,23 @@ import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/auth-slice";
 
 const authPersistConfig = {
-    key: "root",
-    storage,
-    whitelist: ["token"]
+  key: "root",
+  storage,
+  whitelist: ["token"],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
+
+export const persistor = persistStore(store);
