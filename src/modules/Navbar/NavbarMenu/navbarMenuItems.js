@@ -12,6 +12,10 @@ const navbarMenuItems = [
         text: "Регистрация",
     },
     {
+        href: "/login",
+        text: "Вход",
+    },
+    {
         href: "/contacts",
         text: "Контакты",
     },

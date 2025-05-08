@@ -6,9 +6,9 @@ import Button from "../../../shared/components/Button/Button";
 
 import fields from "./fields";
 
-import { registerFormStyle } from "./styles";
+import { loginFormStyle } from "./styles";
 
-const RegisterForm = ({ submitForm }) => {
+const LoginForm = ({ submitForm }) => {
   const {
     register,
     handleSubmit,
@@ -22,7 +22,7 @@ const RegisterForm = ({ submitForm }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} css={registerFormStyle}>
+    <form onSubmit={handleSubmit(onSubmit)} css={loginFormStyle}>
       <TextField {...fields.email} register={register} error={errors.email} />
       <TextField
         {...fields.password}
@@ -34,4 +34,4 @@ const RegisterForm = ({ submitForm }) => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
